@@ -19,7 +19,7 @@ protocol HttpGetClient {
 }
 
 class RemoteFetchPokemonDataTests: XCTestCase {
-    func test() {
+    func test_getOne_should_call_httpClient_with_correct_url() {
         let url = URL(string: "http://any-url.com")!
         let httpClientSpy = HttpClientSpy()
         let sut = RemoteFetchPokemonData(url: url, httpClient: httpClientSpy)
