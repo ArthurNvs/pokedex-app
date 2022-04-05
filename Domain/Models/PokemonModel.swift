@@ -1,11 +1,21 @@
 import Foundation
 
-public struct PokemonModel {
-    var id: Int
-    var name: String
-    var baseExperience: Int
-    var height: Int
-    var weight: Int
-    var isDefault: Bool
-    var order: Int
+public struct PokemonModel: Model {
+    public var id: Int
+    public var name: String
+    public var baseExperience: Int
+    public var height: Int
+    public var weight: Int
+    public var isDefault: Bool
+    public var order: Int
+    
+    public init(id: Int, name: String, baseExperience: Int, height: Int, weight: Int, isDefault: Bool, order: Int) {
+        self.id = id
+        self.name = name
+        self.baseExperience = baseExperience
+        self.height = height
+        self.weight = weight
+        self.isDefault = isDefault
+        self.order = order
+    }
 }

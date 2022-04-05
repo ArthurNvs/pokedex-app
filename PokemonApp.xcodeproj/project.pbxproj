@@ -12,6 +12,8 @@
 		8B88186827FCA59B00910B88 /* HttpGetClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88186727FCA59B00910B88 /* HttpGetClient.swift */; };
 		8B88187027FCA96100910B88 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88186F27FCA96100910B88 /* DomainError.swift */; };
 		8B88187327FCAAEB00910B88 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88187227FCAAEB00910B88 /* HttpError.swift */; };
+		8B88187527FCF3E000910B88 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88187427FCF3E000910B88 /* Model.swift */; };
+		8B88187727FCF70100910B88 /* ExtensionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88187627FCF70100910B88 /* ExtensionHelpers.swift */; };
 		8B8D5E9927FC797E008D34D1 /* FetchPokemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5E9827FC797E008D34D1 /* FetchPokemonData.swift */; };
 		8B8D5EA927FC7EEC008D34D1 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D5EA127FC7EEB008D34D1 /* Data.framework */; };
 		8B8D5EAE27FC7EEC008D34D1 /* RemoteFetchPokemonDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5EAD27FC7EEC008D34D1 /* RemoteFetchPokemonDataTests.swift */; };
@@ -56,6 +58,8 @@
 		8B88186727FCA59B00910B88 /* HttpGetClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpGetClient.swift; sourceTree = "<group>"; };
 		8B88186F27FCA96100910B88 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
 		8B88187227FCAAEB00910B88 /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
+		8B88187427FCF3E000910B88 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		8B88187627FCF70100910B88 /* ExtensionHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHelpers.swift; sourceTree = "<group>"; };
 		8B8D5E9127FC78F8008D34D1 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B8D5E9827FC797E008D34D1 /* FetchPokemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPokemonData.swift; sourceTree = "<group>"; };
 		8B8D5EA127FC7EEB008D34D1 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				8B88186327FC8ED200910B88 /* PokemonModel.swift */,
+				8B88187427FCF3E000910B88 /* Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,6 +142,14 @@
 				8B88186F27FCA96100910B88 /* DomainError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		8B88187827FCF71000910B88 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8B88187627FCF70100910B88 /* ExtensionHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		8B8D5E7827FC78A3008D34D1 = {
@@ -175,6 +188,7 @@
 			children = (
 				8B88186C27FCA64E00910B88 /* UseCases */,
 				8B88186D27FCA65C00910B88 /* Http */,
+				8B88187827FCF71000910B88 /* Helpers */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -345,6 +359,7 @@
 				8B8D5E9927FC797E008D34D1 /* FetchPokemonData.swift in Sources */,
 				8B88187027FCA96100910B88 /* DomainError.swift in Sources */,
 				8B88186427FC8ED200910B88 /* PokemonModel.swift in Sources */,
+				8B88187527FCF3E000910B88 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B88186627FCA52800910B88 /* RemoteFetchPokemonData.swift in Sources */,
+				8B88187727FCF70100910B88 /* ExtensionHelpers.swift in Sources */,
 				8B88187327FCAAEB00910B88 /* HttpError.swift in Sources */,
 				8B88186827FCA59B00910B88 /* HttpGetClient.swift in Sources */,
 			);
