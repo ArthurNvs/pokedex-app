@@ -1,4 +1,5 @@
 import XCTest
+import Domain
 
 class RemoteFetchPokemonData {
     private let url: URL
@@ -9,13 +10,13 @@ class RemoteFetchPokemonData {
         self.httpClient = httpClient
     }
     
-    func getOne() {
-        httpClient.get(url: url)
+    func getPokemonById(_ id: Int) {
+        httpClient.get(url: url, id: id)
     }
 }
 
 protocol HttpGetClient {
-    func get(url: URL)
+    func get(url: URL, id: Int)
 }
 
 class RemoteFetchPokemonDataTests: XCTestCase {
@@ -23,17 +24,26 @@ class RemoteFetchPokemonDataTests: XCTestCase {
         let url = URL(string: "http://any-url.com")!
         let httpClientSpy = HttpClientSpy()
         let sut = RemoteFetchPokemonData(url: url, httpClient: httpClientSpy)
-        sut.getOne()
+        sut.getPokemonById(1)
         XCTAssertEqual(httpClientSpy.url, url)
+    }
+    
+    func test_getPokemonById_should_call_httpClient_with_correct_id() {
+        let httpClientSpy = HttpClientSpy()
+        let sut = RemoteFetchPokemonData(url: URL(string: "http://any-url.com")!, httpClient: httpClientSpy)
+        sut.getPokemonById(1)
+        XCTAssertEqual(httpClientSpy.id, 1)
     }
 }
 
 extension RemoteFetchPokemonDataTests {
     public class HttpClientSpy: HttpGetClient {
         var url: URL?
+        var id: Int?
         
-        func get(url: URL) {
+        func get(url: URL, id: Int) {
             self.url = url
+            self.id = id
         }
     }
 }
