@@ -41,9 +41,11 @@ class RemoteFetchPokemonDataTests: XCTestCase {
 }
 
 extension RemoteFetchPokemonDataTests {
-    func makeSut(url: URL = URL(string: "http://any-url.com")!) -> (sut: RemoteFetchPokemonData, httpClient: HttpClientSpy) {
+    func makeSut(url: URL = URL(string: "http://any-url.com")!, file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteFetchPokemonData, httpClient: HttpClientSpy) {
         let httpClientSpy = HttpClientSpy()
         let sut = RemoteFetchPokemonData(url: url, httpClient: httpClientSpy)
+        checkMemoryLeak(for: sut, file: file, line: line)
+        checkMemoryLeak(for: httpClientSpy, file: file, line: line)
         return (sut, httpClientSpy)
     }
     
@@ -62,38 +64,5 @@ extension RemoteFetchPokemonDataTests {
         }
         action()
         wait(for: [exp], timeout: 1)
-    }
-    
-    func makeInvalidData() -> Data {
-        return Data("invalid_json_data".utf8)
-    }
-    
-    func makeUrl() -> URL {
-        return URL(string: "http://any-url.com")!
-    }
-    
-    func makePokemonModel() -> PokemonModel {
-        return PokemonModel(id: 0, name: "Bubasaur", baseExperience: 10, height: 10, weight: 10, isDefault: true, order: 1)
-    }
-    
-    public class HttpClientSpy: HttpGetClient {
-        var urls = [URL]()
-        var id: Int?
-        var data: Data?
-        var completion: ((Result<Data, HttpError>) -> Void)?
-
-        func get(from url: URL, with id: Int, completion: @escaping (Result<Data, HttpError>) -> Void) {
-            self.urls.append(url)
-            self.id = id
-            self.completion = completion
-        }
-        
-        func completeWithError(_ error: HttpError) {
-            completion?(.failure(error))
-        }
-        
-        func completeWithData(_ data: Data) {
-            completion?(.success(data))
-        }
     }
 }
