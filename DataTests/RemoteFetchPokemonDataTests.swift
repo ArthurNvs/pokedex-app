@@ -2,9 +2,9 @@ import XCTest
 
 class RemoteFetchPokemonData {
     private let url: URL
-    private let httpClient: HttpClient
+    private let httpClient: HttpGetClient
     
-    init(url: URL, httpClient: HttpClient) {
+    init(url: URL, httpClient: HttpGetClient) {
         self.url = url
         self.httpClient = httpClient
     }
@@ -14,7 +14,7 @@ class RemoteFetchPokemonData {
     }
 }
 
-protocol HttpClient {
+protocol HttpGetClient {
     func get(url: URL)
 }
 
@@ -28,7 +28,7 @@ class RemoteFetchPokemonDataTests: XCTestCase {
     }
 }
 
-public class HttpClientSpy: HttpClient {
+public class HttpClientSpy: HttpGetClient {
     var url: URL?
     
     func get(url: URL) {
