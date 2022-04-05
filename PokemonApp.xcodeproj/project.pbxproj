@@ -86,6 +86,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B88186A27FCA62700910B88 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				8B8D5E9827FC797E008D34D1 /* FetchPokemonData.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		8B88186B27FCA63500910B88 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B88186327FC8ED200910B88 /* PokemonModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8B88186C27FCA64E00910B88 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				8B88186527FCA52800910B88 /* RemoteFetchPokemonData.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		8B88186D27FCA65C00910B88 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				8B88186727FCA59B00910B88 /* HttpGetClient.swift */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		8B88186E27FCA66C00910B88 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				8B8D5EAD27FC7EEC008D34D1 /* RemoteFetchPokemonDataTests.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		8B8D5E7827FC78A3008D34D1 = {
 			isa = PBXGroup;
 			children = (
@@ -110,8 +150,8 @@
 		8B8D5E9227FC78F8008D34D1 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				8B8D5E9827FC797E008D34D1 /* FetchPokemonData.swift */,
-				8B88186327FC8ED200910B88 /* PokemonModel.swift */,
+				8B88186A27FCA62700910B88 /* UseCases */,
+				8B88186B27FCA63500910B88 /* Models */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -119,8 +159,8 @@
 		8B8D5EA227FC7EEB008D34D1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				8B88186527FCA52800910B88 /* RemoteFetchPokemonData.swift */,
-				8B88186727FCA59B00910B88 /* HttpGetClient.swift */,
+				8B88186C27FCA64E00910B88 /* UseCases */,
+				8B88186D27FCA65C00910B88 /* Http */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -128,7 +168,7 @@
 		8B8D5EAC27FC7EEC008D34D1 /* DataTests */ = {
 			isa = PBXGroup;
 			children = (
-				8B8D5EAD27FC7EEC008D34D1 /* RemoteFetchPokemonDataTests.swift */,
+				8B88186E27FCA66C00910B88 /* UseCases */,
 			);
 			path = DataTests;
 			sourceTree = "<group>";
