@@ -1,7 +1,7 @@
 import Foundation
 import Domain
 
-public final class RemoteFetchPokemonData {
+public final class RemoteFetchPokemonData: FetchPokemonData {
     private let url: URL
     private let httpClient: HttpGetClient
     
@@ -10,9 +10,9 @@ public final class RemoteFetchPokemonData {
         self.httpClient = httpClient
     }
     
-    public func getPokemonById(_ id: Int, completion: @escaping (DomainError) -> Void) {
+    public func getPokemonById(_ id: Int, completion: @escaping (Result<PokemonModel, DomainError>) -> Void) {
         httpClient.get(from: url, with: id) { error in
-            completion(.unexpected)
+            completion(.failure(.unexpected))
         }
     }
 }

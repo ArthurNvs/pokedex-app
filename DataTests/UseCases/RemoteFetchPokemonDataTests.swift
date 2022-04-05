@@ -12,20 +12,23 @@ class RemoteFetchPokemonDataTests: XCTestCase {
     
     func test_getPokemonById_should_call_httpClient_with_correct_id() {
         let (sut, httpClientSpy) = makeSut()
+        let id = 1
+        sut.getPokemonById(id) { _ in }
+        XCTAssertEqual(httpClientSpy.id, id)
+    }
+    
+    func test_getPokemonById_should_complete_with_error_if_client_completes_with_error() {
+        let (sut, httpClientSpy) = makeSut()
         let exp = expectation(description: "waiting")
-        sut.getPokemonById(0) { error in
-            XCTAssertEqual(error, .unexpected)
+        sut.getPokemonById(0) { result in
+            switch result {
+            case.failure(let error): XCTAssertEqual(error, .unexpected)
+            case .success: XCTFail("Expected error, received \(result) instead")
+            }
             exp.fulfill()
         }
         httpClientSpy.completeWithError(.noConnectivity)
         wait(for: [exp], timeout: 1)
-    }
-    
-    func test_getPokemonById_should_complete_with_error_if_client_fails() {
-        let (sut, httpClientSpy) = makeSut()
-        let id = 1
-        sut.getPokemonById(id) { _ in }
-        XCTAssertEqual(httpClientSpy.id, id)
     }
 }
 
@@ -39,16 +42,16 @@ extension RemoteFetchPokemonDataTests {
     public class HttpClientSpy: HttpGetClient {
         var urls = [URL]()
         var id: Int?
-        var completion: ((HttpError) -> Void)?
+        var completion: ((Result<Data, HttpError>) -> Void)?
 
-        func get(from url: URL, with id: Int, completion: @escaping (HttpError) -> Void) {
+        func get(from url: URL, with id: Int, completion: @escaping (Result<Data, HttpError>) -> Void) {
             self.urls.append(url)
             self.id = id
             self.completion = completion
         }
         
         func completeWithError(_ error: HttpError) {
-            completion?(error)
+            completion?(.failure(error))
         }
     }
 }
