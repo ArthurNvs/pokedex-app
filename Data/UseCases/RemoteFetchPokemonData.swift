@@ -16,6 +16,8 @@ public final class RemoteFetchPokemonData: FetchPokemonData {
             case .success(let data):
                 if let model: PokemonModel = data.toModel() {
                     completion(.success(model))
+                } else {
+                    completion(.failure(.unexpected))
                 }
             case .failure: completion(.failure(.unexpected))
             }

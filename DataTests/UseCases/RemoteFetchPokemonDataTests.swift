@@ -31,7 +31,7 @@ class RemoteFetchPokemonDataTests: XCTestCase {
         wait(for: [exp], timeout: 1)
     }
     
-    func test_getPokemonById_should_complete_with_pokemon_if_client_completes_with_data() {
+    func test_getPokemonById_should_complete_with_pokemon_if_client_completes_with_valid_data() {
         let (sut, httpClientSpy) = makeSut()
         let exp = expectation(description: "waiting")
         let expectedPokemon = makePokemonModel()
@@ -43,6 +43,20 @@ class RemoteFetchPokemonDataTests: XCTestCase {
             exp.fulfill()
         }
         httpClientSpy.completeWithData(makePokemonModel().toData()!)
+        wait(for: [exp], timeout: 1)
+    }
+    
+    func test_getPokemonById_should_complete_with_error_if_client_completes_with_invalid_data() {
+        let (sut, httpClientSpy) = makeSut()
+        let exp = expectation(description: "waiting")
+        sut.getPokemonById(0) { result in
+            switch result {
+            case.failure(let error): XCTAssertEqual(error, .unexpected)
+            case .success: XCTFail("Expected error, received \(result) instead")
+            }
+            exp.fulfill()
+        }
+        httpClientSpy.completeWithData(Data("invalid_json_data".utf8))
         wait(for: [exp], timeout: 1)
     }
 }
