@@ -28,11 +28,12 @@ class RemoteFetchPokemonDataTests: XCTestCase {
     }
 }
 
-public class HttpClientSpy: HttpGetClient {
-    var url: URL?
-    
-    func get(url: URL) {
-        self.url = url
+extension RemoteFetchPokemonDataTests {
+    public class HttpClientSpy: HttpGetClient {
+        var url: URL?
+        
+        func get(url: URL) {
+            self.url = url
+        }
     }
-    
 }
