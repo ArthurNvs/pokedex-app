@@ -19,45 +19,24 @@ class RemoteFetchPokemonDataTests: XCTestCase {
     
     func test_getPokemonById_should_complete_with_error_if_client_completes_with_error() {
         let (sut, httpClientSpy) = makeSut()
-        let exp = expectation(description: "waiting")
-        sut.getPokemonById(0) { result in
-            switch result {
-            case.failure(let error): XCTAssertEqual(error, .unexpected)
-            case .success: XCTFail("Expected error, received \(result) instead")
-            }
-            exp.fulfill()
-        }
-        httpClientSpy.completeWithError(.noConnectivity)
-        wait(for: [exp], timeout: 1)
+        expect(sut, completeWith: .failure(.unexpected), when: {
+            httpClientSpy.completeWithError(.noConnectivity)
+        })
     }
     
     func test_getPokemonById_should_complete_with_pokemon_if_client_completes_with_valid_data() {
         let (sut, httpClientSpy) = makeSut()
-        let exp = expectation(description: "waiting")
-        let expectedPokemon = makePokemonModel()
-        sut.getPokemonById(0) { result in
-            switch result {
-            case .success(let receivedPokemon): XCTAssertEqual(receivedPokemon, expectedPokemon)
-            case.failure: XCTFail("Expected error, received \(result) instead")
-            }
-            exp.fulfill()
-        }
-        httpClientSpy.completeWithData(makePokemonModel().toData()!)
-        wait(for: [exp], timeout: 1)
+        let pokemon = makePokemonModel()
+        expect(sut, completeWith: .success(pokemon), when: {
+            httpClientSpy.completeWithData(makePokemonModel().toData()!)
+        })
     }
     
     func test_getPokemonById_should_complete_with_error_if_client_completes_with_invalid_data() {
         let (sut, httpClientSpy) = makeSut()
-        let exp = expectation(description: "waiting")
-        sut.getPokemonById(0) { result in
-            switch result {
-            case.failure(let error): XCTAssertEqual(error, .unexpected)
-            case .success: XCTFail("Expected error, received \(result) instead")
-            }
-            exp.fulfill()
-        }
-        httpClientSpy.completeWithData(Data("invalid_json_data".utf8))
-        wait(for: [exp], timeout: 1)
+        expect(sut, completeWith: .failure(.unexpected), when: {
+            httpClientSpy.completeWithData(Data("invalid_json_data".utf8))
+        })
     }
 }
 
@@ -66,6 +45,23 @@ extension RemoteFetchPokemonDataTests {
         let httpClientSpy = HttpClientSpy()
         let sut = RemoteFetchPokemonData(url: url, httpClient: httpClientSpy)
         return (sut, httpClientSpy)
+    }
+    
+    func expect(_ sut: RemoteFetchPokemonData,
+                completeWith expectedResult: Result<PokemonModel, DomainError>,
+                when action: () -> Void,
+                file: StaticString = #filePath, line: UInt = #line) {
+        let exp = expectation(description: "waiting")
+        sut.getPokemonById(0) { receivedResult in
+            switch (expectedResult, receivedResult) {
+            case(.failure(let expectedError), .failure(let receivedError)): XCTAssertEqual(expectedError, receivedError, file: file, line: line)
+            case(.success(let expectedPokemon), .success(let receivedPokemon)): XCTAssertEqual(expectedPokemon, receivedPokemon, file: file, line: line)
+            default: XCTFail("Expected \(expectedResult) received \(receivedResult) instead", file: file, line: line)
+            }
+            exp.fulfill()
+        }
+        action()
+        wait(for: [exp], timeout: 1)
     }
     
     func makePokemonModel() -> PokemonModel {
