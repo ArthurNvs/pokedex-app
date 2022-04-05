@@ -1,23 +1,6 @@
 import XCTest
 import Domain
-
-class RemoteFetchPokemonData {
-    private let url: URL
-    private let httpClient: HttpGetClient
-    
-    init(url: URL, httpClient: HttpGetClient) {
-        self.url = url
-        self.httpClient = httpClient
-    }
-    
-    func getPokemonById(_ id: Int) {
-        httpClient.get(from: url, with: id)
-    }
-}
-
-protocol HttpGetClient {
-    func get(from url: URL, with id: Int)
-}
+import Data
 
 class RemoteFetchPokemonDataTests: XCTestCase {
     func test_getOne_should_call_httpClient_with_correct_url() {

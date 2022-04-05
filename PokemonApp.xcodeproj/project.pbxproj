@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8B88186427FC8ED200910B88 /* PokemonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88186327FC8ED200910B88 /* PokemonModel.swift */; };
+		8B88186627FCA52800910B88 /* RemoteFetchPokemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88186527FCA52800910B88 /* RemoteFetchPokemonData.swift */; };
+		8B88186827FCA59B00910B88 /* HttpGetClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88186727FCA59B00910B88 /* HttpGetClient.swift */; };
 		8B8D5E9927FC797E008D34D1 /* FetchPokemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5E9827FC797E008D34D1 /* FetchPokemonData.swift */; };
 		8B8D5EA927FC7EEC008D34D1 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D5EA127FC7EEB008D34D1 /* Data.framework */; };
 		8B8D5EAE27FC7EEC008D34D1 /* RemoteFetchPokemonDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5EAD27FC7EEC008D34D1 /* RemoteFetchPokemonDataTests.swift */; };
@@ -48,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		8B88186327FC8ED200910B88 /* PokemonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonModel.swift; sourceTree = "<group>"; };
+		8B88186527FCA52800910B88 /* RemoteFetchPokemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFetchPokemonData.swift; sourceTree = "<group>"; };
+		8B88186727FCA59B00910B88 /* HttpGetClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpGetClient.swift; sourceTree = "<group>"; };
 		8B8D5E9127FC78F8008D34D1 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B8D5E9827FC797E008D34D1 /* FetchPokemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPokemonData.swift; sourceTree = "<group>"; };
 		8B8D5EA127FC7EEB008D34D1 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +119,8 @@
 		8B8D5EA227FC7EEB008D34D1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				8B88186527FCA52800910B88 /* RemoteFetchPokemonData.swift */,
+				8B88186727FCA59B00910B88 /* HttpGetClient.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -226,6 +232,7 @@
 					};
 					8B8D5EA027FC7EEB008D34D1 = {
 						CreatedOnToolsVersion = 13.3;
+						LastSwiftMigration = 1330;
 					};
 					8B8D5EA727FC7EEC008D34D1 = {
 						CreatedOnToolsVersion = 13.3;
@@ -290,6 +297,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B88186627FCA52800910B88 /* RemoteFetchPokemonData.swift in Sources */,
+				8B88186827FCA59B00910B88 /* HttpGetClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +510,7 @@
 		8B8D5EB127FC7EEC008D34D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -523,6 +533,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -530,6 +541,7 @@
 		8B8D5EB227FC7EEC008D34D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -559,6 +571,7 @@
 		8B8D5EB427FC7EEC008D34D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -575,6 +588,7 @@
 		8B8D5EB527FC7EEC008D34D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
