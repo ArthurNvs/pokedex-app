@@ -10,7 +10,7 @@
 		8B8D5E9927FC797E008D34D1 /* FetchPokemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5E9827FC797E008D34D1 /* FetchPokemonData.swift */; };
 		8B8D5E9B27FC7E92008D34D1 /* PokemonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5E9A27FC7E92008D34D1 /* PokemonModel.swift */; };
 		8B8D5EA927FC7EEC008D34D1 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D5EA127FC7EEB008D34D1 /* Data.framework */; };
-		8B8D5EAE27FC7EEC008D34D1 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5EAD27FC7EEC008D34D1 /* DataTests.swift */; };
+		8B8D5EAE27FC7EEC008D34D1 /* RemoteFetchPokemonDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5EAD27FC7EEC008D34D1 /* RemoteFetchPokemonDataTests.swift */; };
 		8B8D5EB727FC7F36008D34D1 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D5E9127FC78F8008D34D1 /* Domain.framework */; };
 		8B8D5EB827FC7F36008D34D1 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D5E9127FC78F8008D34D1 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -52,7 +52,7 @@
 		8B8D5E9A27FC7E92008D34D1 /* PokemonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonModel.swift; sourceTree = "<group>"; };
 		8B8D5EA127FC7EEB008D34D1 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B8D5EA827FC7EEC008D34D1 /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B8D5EAD27FC7EEC008D34D1 /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
+		8B8D5EAD27FC7EEC008D34D1 /* RemoteFetchPokemonDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFetchPokemonDataTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,7 @@
 		8B8D5EAC27FC7EEC008D34D1 /* DataTests */ = {
 			isa = PBXGroup;
 			children = (
-				8B8D5EAD27FC7EEC008D34D1 /* DataTests.swift */,
+				8B8D5EAD27FC7EEC008D34D1 /* RemoteFetchPokemonDataTests.swift */,
 			);
 			path = DataTests;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B8D5EAE27FC7EEC008D34D1 /* DataTests.swift in Sources */,
+				8B8D5EAE27FC7EEC008D34D1 /* RemoteFetchPokemonDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
