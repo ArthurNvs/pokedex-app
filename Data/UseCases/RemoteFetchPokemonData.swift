@@ -10,7 +10,9 @@ public final class RemoteFetchPokemonData {
         self.httpClient = httpClient
     }
     
-    public func getPokemonById(_ id: Int) {
-        httpClient.get(from: url, with: id)
+    public func getPokemonById(_ id: Int, completion: @escaping (DomainError) -> Void) {
+        httpClient.get(from: url, with: id) { error in
+            completion(.unexpected)
+        }
     }
 }
