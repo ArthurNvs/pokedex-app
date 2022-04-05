@@ -6,8 +6,15 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8B8D5E9927FC797E008D34D1 /* FetchPokemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5E9827FC797E008D34D1 /* FetchPokemonData.swift */; };
+		8B8D5E9B27FC7E92008D34D1 /* PokemonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D5E9A27FC7E92008D34D1 /* PokemonModel.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		8B8D5E9127FC78F8008D34D1 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8D5E9827FC797E008D34D1 /* FetchPokemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPokemonData.swift; sourceTree = "<group>"; };
+		8B8D5E9A27FC7E92008D34D1 /* PokemonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +47,8 @@
 		8B8D5E9227FC78F8008D34D1 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				8B8D5E9827FC797E008D34D1 /* FetchPokemonData.swift */,
+				8B8D5E9A27FC7E92008D34D1 /* PokemonModel.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -86,6 +95,7 @@
 				TargetAttributes = {
 					8B8D5E9027FC78F8008D34D1 = {
 						CreatedOnToolsVersion = 13.3;
+						LastSwiftMigration = 1330;
 					};
 				};
 			};
@@ -122,6 +132,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B8D5E9927FC797E008D34D1 /* FetchPokemonData.swift in Sources */,
+				8B8D5E9B27FC7E92008D34D1 /* PokemonModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +263,7 @@
 		8B8D5E9627FC78F8008D34D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -273,6 +286,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -280,6 +294,7 @@
 		8B8D5E9727FC78F8008D34D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
