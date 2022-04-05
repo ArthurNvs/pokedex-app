@@ -11,12 +11,12 @@ class RemoteFetchPokemonData {
     }
     
     func getPokemonById(_ id: Int) {
-        httpClient.get(url: url, id: id)
+        httpClient.get(from: url, with: id)
     }
 }
 
 protocol HttpGetClient {
-    func get(url: URL, id: Int)
+    func get(from url: URL, with id: Int)
 }
 
 class RemoteFetchPokemonDataTests: XCTestCase {
@@ -30,9 +30,10 @@ class RemoteFetchPokemonDataTests: XCTestCase {
     
     func test_getPokemonById_should_call_httpClient_with_correct_id() {
         let httpClientSpy = HttpClientSpy()
+        let id = 1
         let sut = RemoteFetchPokemonData(url: URL(string: "http://any-url.com")!, httpClient: httpClientSpy)
-        sut.getPokemonById(1)
-        XCTAssertEqual(httpClientSpy.id, 1)
+        sut.getPokemonById(id)
+        XCTAssertEqual(httpClientSpy.id, id)
     }
 }
 
@@ -41,7 +42,7 @@ extension RemoteFetchPokemonDataTests {
         var url: URL?
         var id: Int?
         
-        func get(url: URL, id: Int) {
+        func get(from url: URL, with id: Int) {
             self.url = url
             self.id = id
         }
