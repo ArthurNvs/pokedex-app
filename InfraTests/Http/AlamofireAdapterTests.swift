@@ -16,10 +16,7 @@ class AlamofireAdapter {
 class AlamofireAdapterTests: XCTestCase {
     func test_get_should_make_request_with_valid_url_and_method() {
         let url = makeUrl()
-        let configuration = URLSessionConfiguration.default
-        configuration.protocolClasses = [UrlProtocolStub.self]
-        let session = Session(configuration: configuration)
-        let sut = makeSut(session: session)
+        let sut = makeSut()
         sut.get(from: url)
         let exp = expectation(description: "waiting")
         UrlProtocolStub.observeRequest { request in
@@ -32,7 +29,10 @@ class AlamofireAdapterTests: XCTestCase {
 }
 
 extension AlamofireAdapterTests {
-    func makeSut(session: Session) -> AlamofireAdapter {
+    func makeSut() -> AlamofireAdapter {
+        let configuration = URLSessionConfiguration.default
+        configuration.protocolClasses = [UrlProtocolStub.self]
+        let session = Session(configuration: configuration)
         return AlamofireAdapter(session: session)
     }
 }
