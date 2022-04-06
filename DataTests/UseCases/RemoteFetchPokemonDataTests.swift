@@ -41,7 +41,8 @@ class RemoteFetchPokemonDataTests: XCTestCase {
 }
 
 extension RemoteFetchPokemonDataTests {
-    func makeSut(url: URL = URL(string: "http://any-url.com")!, file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteFetchPokemonData, httpClient: HttpClientSpy) {
+    func makeSut(url: URL = URL(string: "http://any-url.com")!,
+                 file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteFetchPokemonData, httpClient: HttpClientSpy) {
         let httpClientSpy = HttpClientSpy()
         let sut = RemoteFetchPokemonData(url: url, httpClient: httpClientSpy)
         checkMemoryLeak(for: sut, file: file, line: line)
