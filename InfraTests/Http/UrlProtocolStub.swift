@@ -1,6 +1,6 @@
 import Foundation
 
-// Mock's request
+// This is a generic way to intercept any requests and simulate behaviors
 class UrlProtocolStub: URLProtocol {
   static var emit: ((URLRequest) -> Void)?
   
