@@ -5,5 +5,10 @@ func makeInvalidData() -> Data {
 }
 
 func makeUrl() -> URL {
-    return URL(string: "http://any-url.com")!
+    let id = 1
+    var components = URLComponents()
+    components.scheme = "http"
+    components.host = "any-url.com"
+    components.path = "/\(id)"
+    return components.url!
 }
