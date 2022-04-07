@@ -12,3 +12,7 @@ func makeUrl() -> URL {
     components.path = "/\(id)"
     return components.url!
 }
+
+func makeError() -> Error {
+    return NSError(domain: "any_error", code: 0)
+}
