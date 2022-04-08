@@ -55,12 +55,11 @@ extension AlamofireAdapterTests {
     
     func testRequestFor(url: URL, action: @escaping (URLRequest) -> Void) {
         let sut = makeSut()
-        sut.get(from: url) { _ in }
         let exp = expectation(description: "waiting")
-        UrlProtocolStub.observeRequest { request in
-            action(request)
-            exp.fulfill()
-        }
+        sut.get(from: url) { _ in exp.fulfill() }
+        var request: URLRequest?
+        UrlProtocolStub.observeRequest { request = $0 }
         wait(for: [exp], timeout: 1)
+        action(request!)
     }
 }
