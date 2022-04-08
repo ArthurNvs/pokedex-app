@@ -14,7 +14,7 @@ class AlamofireAdapter {
             guard dataResponse.response?.statusCode != nil else { return completion(.failure(.noConnectivity)) }
             switch dataResponse.result {
             case .failure: completion(.failure(.noConnectivity))
-            case .success: break
+            case .success(let data): completion(.success(data))
             }
         }
     }
@@ -29,17 +29,21 @@ class AlamofireAdapterTests: XCTestCase {
         }
     }
     
+    func test_get_should_complete_with_data_when_request_completes_with_status_200() {
+        expectResult(.success(makeValidData()), when: (makeValidData(), makeHttpResponse(), nil))
+    }
+    
     func test_get_should_complete_with_error_when_request_completes_with_error() {
-        expectResult(Result.failure(.noConnectivity), when: (nil, nil, makeError()))
+        expectResult(.failure(.noConnectivity), when: (nil, nil, makeError()))
     }
     
     func test_get_should_complete_with_error_on_all_invalid_cases() {
         expectResult(.failure(.noConnectivity), when: (makeValidData(), makeHttpResponse(), makeError()))
-        expectResult(Result.failure(.noConnectivity), when: (nil, makeHttpResponse(), makeError()))
-        expectResult(Result.failure(.noConnectivity), when: (makeValidData(), nil, makeError()))
-        expectResult(Result.failure(.noConnectivity), when: (nil, makeHttpResponse(), nil))
-        expectResult(Result.failure(.noConnectivity), when: (nil, nil, makeError()))
-        expectResult(Result.failure(.noConnectivity), when: (makeValidData(), nil, nil))
+        expectResult(.failure(.noConnectivity), when: (nil, makeHttpResponse(), makeError()))
+        expectResult(.failure(.noConnectivity), when: (makeValidData(), nil, makeError()))
+        expectResult(.failure(.noConnectivity), when: (nil, makeHttpResponse(), nil))
+        expectResult(.failure(.noConnectivity), when: (makeValidData(), nil, nil))
+        expectResult(.failure(.noConnectivity), when: (nil, nil, nil))
     }
 }
 
