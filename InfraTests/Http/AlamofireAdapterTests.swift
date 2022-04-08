@@ -11,6 +11,7 @@ class AlamofireAdapter {
     
     func get(from url: URL, completion: @escaping (Result<Data, HttpError>) -> Void) {
         session.request(url, method: .get).responseData { dataResponse in
+            guard dataResponse.response?.statusCode != nil else { return completion(.failure(.noConnectivity)) }
             switch dataResponse.result {
             case .failure: completion(.failure(.noConnectivity))
             case .success: break
@@ -30,6 +31,15 @@ class AlamofireAdapterTests: XCTestCase {
     
     func test_get_should_complete_with_error_when_request_completes_with_error() {
         expectResult(Result.failure(.noConnectivity), when: (nil, nil, makeError()))
+    }
+    
+    func test_get_should_complete_with_error_on_all_invalid_cases() {
+        expectResult(.failure(.noConnectivity), when: (makeValidData(), makeHttpResponse(), makeError()))
+        expectResult(Result.failure(.noConnectivity), when: (nil, makeHttpResponse(), makeError()))
+        expectResult(Result.failure(.noConnectivity), when: (makeValidData(), nil, makeError()))
+        expectResult(Result.failure(.noConnectivity), when: (nil, makeHttpResponse(), nil))
+        expectResult(Result.failure(.noConnectivity), when: (nil, nil, makeError()))
+        expectResult(Result.failure(.noConnectivity), when: (makeValidData(), nil, nil))
     }
 }
 
