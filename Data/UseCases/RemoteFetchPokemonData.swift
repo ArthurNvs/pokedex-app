@@ -11,10 +11,12 @@ public final class RemoteFetchPokemonData: FetchPokemonData {
     }
     
     public func getPokemonById(_ id: Int, completion: @escaping (Result<PokemonModel, DomainError>) -> Void) {
-        httpClient.get(from: url, with: id) { result in
+        //TODO: makeURL()
+        //maybe use some vars with the parts of the url and a var that mounts the URL
+        httpClient.get(from: url) { result in
             switch result {
             case .success(let data):
-                if let model: PokemonModel = data.toModel() {
+                if let model: PokemonModel = data?.toModel() {
                     completion(.success(model))
                 } else {
                     completion(.failure(.unexpected))

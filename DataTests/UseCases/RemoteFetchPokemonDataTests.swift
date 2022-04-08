@@ -10,12 +10,12 @@ class RemoteFetchPokemonDataTests: XCTestCase {
         XCTAssertEqual(httpClientSpy.urls, [url])
     }
     
-    func test_getPokemonById_should_call_httpClient_with_correct_id() {
-        let (sut, httpClientSpy) = makeSut()
-        let id = 1
-        sut.getPokemonById(id) { _ in }
-        XCTAssertEqual(httpClientSpy.id, id)
-    }
+//    func test_getPokemonById_should_call_httpClient_with_correct_id() {
+//        let (sut, httpClientSpy) = makeSut()
+//        let id = 1
+//        sut.getPokemonById(id) { _ in }
+//        XCTAssertEqual(httpClientSpy.id, id)
+//    }
     
     func test_getPokemonById_should_complete_with_error_if_client_completes_with_error() {
         let (sut, httpClientSpy) = makeSut()
