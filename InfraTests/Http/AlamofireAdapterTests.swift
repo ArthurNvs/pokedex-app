@@ -23,6 +23,8 @@ class AlamofireAdapterTests: XCTestCase {
     }
     
     func test_get_should_complete_with_error_when_request_completes_with_non_200() {
+        expectResult(.failure(.noConnectivity ), when: (makeValidData(), makeHttpResponse(statusCode: 100), nil))
+        expectResult(.failure(.noConnectivity ), when: (makeValidData(), makeHttpResponse(statusCode: 300), nil))
         expectResult(.failure(.badRequest ), when: (makeValidData(), makeHttpResponse(statusCode: 400), nil))
         expectResult(.failure(.unauthorized ), when: (makeValidData(), makeHttpResponse(statusCode: 401), nil))
         expectResult(.failure(.forbidden ), when: (makeValidData(), makeHttpResponse(statusCode: 403), nil))
