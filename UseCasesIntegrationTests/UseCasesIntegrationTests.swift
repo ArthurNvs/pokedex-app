@@ -20,6 +20,7 @@ class FetchPokemonDataIntegrationTests: XCTestCase {
                 XCTAssertNotNil(pokemonData.weight)
                 XCTAssertNotNil(pokemonData.sprites.front_default)
                 XCTAssertNotNil(pokemonData.sprites.back_default)
+                XCTAssertNotNil(pokemonData.abilities)
             }
             exp.fulfill()
         }
