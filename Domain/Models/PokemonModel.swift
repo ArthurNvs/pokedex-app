@@ -30,4 +30,5 @@ public struct PokemonAbilityData: Model {
 
 public struct PokemonAbility: Model {
     public var name: String
+    public var url: String
 }

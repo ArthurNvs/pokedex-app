@@ -15,7 +15,7 @@ class FetchPokemonDataIntegrationTests: XCTestCase {
             case .success(let pokemonData):
                 XCTAssertNotNil(pokemonData)
                 XCTAssertEqual(pokemonData.id, pokemonId)
-                XCTAssertNotNil(pokemonData.name)
+                XCTAssertEqual(pokemonData.name, "bulbasaur")
                 XCTAssertNotNil(pokemonData.height)
                 XCTAssertNotNil(pokemonData.weight)
                 XCTAssertNotNil(pokemonData.sprites.front_default)
