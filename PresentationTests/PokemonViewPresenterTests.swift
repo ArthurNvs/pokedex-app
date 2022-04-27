@@ -8,9 +8,16 @@ class PokemonViewPresenter {
     }
     
     func getPokemon(id: Int) {
-        if id == 0 || id > 898 {
-            alertView.showMessage(viewModel: AlertViewModel(title: "Pokemon Not Found", message: "It seems you got an invalid ID here!"))
+        if let message = validate(id: id) {
+            alertView.showMessage(viewModel: AlertViewModel(title: "Pokemon Not Found", message: message))
         }
+    }
+    
+    private func validate(id: Int) -> String? {
+        if id == 0 || id > 898 {
+            return "It seems you got an invalid ID here!"
+        }
+        return nil
     }
 }
 
