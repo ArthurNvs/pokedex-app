@@ -1,34 +1,5 @@
 import XCTest
-
-class PokemonViewPresenter {
-    private let alertView: AlertView
-    
-    init(alertView: AlertView) {
-        self.alertView = alertView
-    }
-    
-    func getPokemon(id: Int) {
-        if let message = validate(id: id) {
-            alertView.showMessage(viewModel: AlertViewModel(title: "Pokemon Not Found", message: message))
-        }
-    }
-    
-    private func validate(id: Int) -> String? {
-        if id == 0 || id > 898 {
-            return "It seems you got an invalid ID here!"
-        }
-        return nil
-    }
-}
-
-protocol AlertView {
-    func showMessage(viewModel: AlertViewModel)
-}
-
-struct AlertViewModel: Equatable {
-    var title: String
-    var message: String
-}
+import Presentation
 
 class PokemonViewPresenterTests: XCTestCase {
     func test_getPokemon_should_show_error_if_id_is_not_valid() {
