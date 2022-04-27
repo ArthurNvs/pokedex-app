@@ -17,8 +17,7 @@ class PokemonViewPresenterTests: XCTestCase {
 
 extension PokemonViewPresenterTests {
     func makeSut(alertView: AlertViewSpy = AlertViewSpy()) -> PokemonViewPresenter {
-        let sut = PokemonViewPresenter(alertView: alertView)
-        return sut
+        return PokemonViewPresenter(alertView: alertView)
     }
     
     class AlertViewSpy: AlertView {
