@@ -36,7 +36,7 @@
 		8B8D5EB727FC7F36008D34D1 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D5E9127FC78F8008D34D1 /* Domain.framework */; };
 		8B8D5EB827FC7F36008D34D1 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D5E9127FC78F8008D34D1 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BDC6FB72818C388003E29DD /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDC6FAF2818C388003E29DD /* Presentation.framework */; };
-		8BDC6FBC2818C388003E29DD /* SignUpPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC6FBB2818C388003E29DD /* SignUpPresenterTests.swift */; };
+		8BDC6FBC2818C388003E29DD /* PokemonViewPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC6FBB2818C388003E29DD /* PokemonViewPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,7 +149,7 @@
 		8B8D5EAD27FC7EEC008D34D1 /* RemoteFetchPokemonDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFetchPokemonDataTests.swift; sourceTree = "<group>"; };
 		8BDC6FAF2818C388003E29DD /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BDC6FB62818C388003E29DD /* PresentationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresentationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BDC6FBB2818C388003E29DD /* SignUpPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenterTests.swift; sourceTree = "<group>"; };
+		8BDC6FBB2818C388003E29DD /* PokemonViewPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,7 +415,7 @@
 		8BDC6FBA2818C388003E29DD /* PresentationTests */ = {
 			isa = PBXGroup;
 			children = (
-				8BDC6FBB2818C388003E29DD /* SignUpPresenterTests.swift */,
+				8BDC6FBB2818C388003E29DD /* PokemonViewPresenterTests.swift */,
 			);
 			path = PresentationTests;
 			sourceTree = "<group>";
@@ -810,7 +810,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BDC6FBC2818C388003E29DD /* SignUpPresenterTests.swift in Sources */,
+				8BDC6FBC2818C388003E29DD /* PokemonViewPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
