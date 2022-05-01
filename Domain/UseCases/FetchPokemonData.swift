@@ -1,5 +1,6 @@
 import Foundation
 
 public protocol FetchPokemonData {
-    func getPokemonById(_ id: Int, completion: @escaping (Result<PokemonModel, DomainError>) -> Void)
+    typealias Result = Swift.Result<PokemonModel, DomainError>
+    func getPokemonById(_ id: Int, completion: @escaping (Result) -> Void)
 }
