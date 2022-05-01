@@ -14,7 +14,8 @@ public final class PokemonViewPresenter {
         if let message = validate(id: id) {
             alertView.showMessage(viewModel: AlertViewModel(title: "Pokemon Not Found", message: message))
         } else {
-            fetchPokemonData.getPokemonById(id) { result in
+            fetchPokemonData.getPokemonById(id) { [weak self] result in
+                guard let self = self else { return }
                 switch result {
                 case .failure: self.alertView.showMessage(viewModel: AlertViewModel(title: "Error", message: "failed!"))
                 case .success: break

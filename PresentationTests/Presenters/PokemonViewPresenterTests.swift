@@ -54,7 +54,7 @@ class PokemonViewPresenterTests: XCTestCase {
 extension PokemonViewPresenterTests {
     func makeSut(alertView: AlertViewSpy = AlertViewSpy(), fetchPokemonDataSpy: FetchPokemonDataSpy = FetchPokemonDataSpy(), file: StaticString = #filePath, line: UInt = #line) -> PokemonViewPresenter {
         let sut = PokemonViewPresenter(alertView: alertView, fetchPokemonData: fetchPokemonDataSpy)
-        //checkMemoryLeak(for: sut, file: file, line: line)
+        checkMemoryLeak(for: sut, file: file, line: line)
         return sut
     }
     
