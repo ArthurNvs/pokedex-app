@@ -12,7 +12,7 @@ public final class PokemonFetchPresenter {
     
     public func getPokemon(id: Int) {
         if let message = validate(id: id) {
-            alertView.showMessage(viewModel: AlertViewModel(title: "Pokemon Not Found", message: message))
+            alertView.showMessage(viewModel: AlertViewModel(title: "Error", message: message))
         } else {
             fetchPokemonData.getPokemonById(id) { [weak self] result in
                 guard let self = self else { return }
@@ -26,7 +26,7 @@ public final class PokemonFetchPresenter {
     
     private func validate(id: Int) -> String? {
         if id == 0 || id > 898 {
-            return "It seems you got an invalid ID here!"
+            return "Pokemon not found!"
         }
         return nil
     }

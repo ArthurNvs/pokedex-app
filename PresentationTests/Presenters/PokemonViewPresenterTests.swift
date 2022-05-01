@@ -8,7 +8,7 @@ class PokemonViewPresenterTests: XCTestCase {
         let sut = makeSut(alertView: alertViewSpy)
         let exp = expectation(description: "waiting")
         alertViewSpy.observe { viewModel in
-            XCTAssertEqual(viewModel, AlertViewModel(title: "Pokemon Not Found", message: "It seems you got an invalid ID here!"))
+            XCTAssertEqual(viewModel, self.makeErrorAlertViewModel(message: "Pokemon not found!"))
             exp.fulfill()
         }
         sut.getPokemon(id: 0)
@@ -42,7 +42,7 @@ class PokemonViewPresenterTests: XCTestCase {
         let sut = makeSut(alertView: alertViewSpy, fetchPokemonDataSpy: fetchPokemonDataSpy)
         let exp = expectation(description: "waiting")
         alertViewSpy.observe { viewModel in
-            XCTAssertEqual(viewModel, AlertViewModel(title: "Yeah!", message: "success!"))
+            XCTAssertEqual(viewModel, self.makeSuccessAlertViewModel(message: "success!"))
             exp.fulfill()
         }
         sut.getPokemon(id: 1)
@@ -51,6 +51,7 @@ class PokemonViewPresenterTests: XCTestCase {
     }
 }
 
+// MARK: - HELPERS
 extension PokemonViewPresenterTests {
     func makeSut(alertView: AlertViewSpy = AlertViewSpy(), fetchPokemonDataSpy: FetchPokemonDataSpy = FetchPokemonDataSpy(), file: StaticString = #filePath, line: UInt = #line) -> PokemonFetchPresenter {
         let sut = PokemonFetchPresenter(alertView: alertView, fetchPokemonData: fetchPokemonDataSpy)
@@ -61,14 +62,9 @@ extension PokemonViewPresenterTests {
     func makeErrorAlertViewModel(message: String) -> AlertViewModel {
         AlertViewModel(title: "Error", message: message)
     }
-            
-    func makePokemonModel() -> PokemonModel? {
-        do {
-            let pokemon = try PokemonModel(id: 1, name: "Bubasaur", height: 30, weight: 30)
-            return pokemon
-        } catch {
-            print(error)
-        }
-        return nil
+    
+    func makeSuccessAlertViewModel(message: String) -> AlertViewModel {
+        AlertViewModel(title: "Yeah!", message: message)
     }
+            
 }

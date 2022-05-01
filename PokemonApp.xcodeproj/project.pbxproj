@@ -45,6 +45,7 @@
 		8BDC6FD5281B46D5003E29DD /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D5EA127FC7EEB008D34D1 /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BDC6FD9281B5474003E29DD /* FetchPokemonDataSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC6FD8281B5474003E29DD /* FetchPokemonDataSpy.swift */; };
 		8BDC6FDD281B647C003E29DD /* AlertViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC6FDC281B647C003E29DD /* AlertViewSpy.swift */; };
+		8BF33994281EC4C500EA9D67 /* PokemonModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88187E27FD007300910B88 /* PokemonModelFactory.swift */; };
 		8BFADE4F281EB00C00E29C1A /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88187927FCFF8800910B88 /* TestExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -904,6 +905,7 @@
 				8BDC6FBC2818C388003E29DD /* PokemonViewPresenterTests.swift in Sources */,
 				8BDC6FD9281B5474003E29DD /* FetchPokemonDataSpy.swift in Sources */,
 				8BDC6FDD281B647C003E29DD /* AlertViewSpy.swift in Sources */,
+				8BF33994281EC4C500EA9D67 /* PokemonModelFactory.swift in Sources */,
 				8BFADE4F281EB00C00E29C1A /* TestExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
