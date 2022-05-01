@@ -1,7 +1,7 @@
 import Foundation
 import Domain
 
-public final class PokemonViewPresenter {
+public final class PokemonFetchPresenter {
     private let alertView: AlertView
     private let fetchPokemonData: FetchPokemonData
     
@@ -18,7 +18,7 @@ public final class PokemonViewPresenter {
                 guard let self = self else { return }
                 switch result {
                 case .failure: self.alertView.showMessage(viewModel: AlertViewModel(title: "Error", message: "failed!"))
-                case .success: break
+                case .success: self.alertView.showMessage(viewModel: AlertViewModel(title: "Yeah!", message: "success!"))
                 }
             }
         }

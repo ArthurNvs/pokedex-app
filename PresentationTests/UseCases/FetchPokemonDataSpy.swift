@@ -9,6 +9,10 @@ class FetchPokemonDataSpy: FetchPokemonData {
         self.pokemonId = id
         self.completion = completion
     }
+    
+    func completeWithPokemon(_ pokemon: PokemonModel) {
+        self.completion?(.success(pokemon))
+    }
 
     func completeWithError(_ error: DomainError) {
         completion?(.failure(error))
