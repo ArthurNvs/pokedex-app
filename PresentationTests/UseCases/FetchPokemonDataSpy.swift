@@ -3,14 +3,11 @@ import Domain
 
 class FetchPokemonDataSpy: FetchPokemonData {
     var pokemonId: Int?
-    var completion: ((FetchPokemonData.Result) -> Void)?
+    var completion: ((Result<PokemonModel, DomainError>) -> Void)?
 
-    func getPokemonById(_ id: Int, completion: @escaping (FetchPokemonData.Result) -> Void) {
+    func getPokemonById(_ id: Int, completion: @escaping (Result<PokemonModel, DomainError>) -> Void) {
         self.pokemonId = id
-    }
-
-    func completeWithPokemon(_ pokemon: PokemonModel) {
-        completion?(.success(pokemon))
+        self.completion = completion
     }
 
     func completeWithError(_ error: DomainError) {

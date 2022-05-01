@@ -14,7 +14,12 @@ public final class PokemonViewPresenter {
         if let message = validate(id: id) {
             alertView.showMessage(viewModel: AlertViewModel(title: "Pokemon Not Found", message: message))
         } else {
-            fetchPokemonData.getPokemonById(id) { _ in }
+            fetchPokemonData.getPokemonById(id) { result in
+                switch result {
+                case .failure: self.alertView.showMessage(viewModel: AlertViewModel(title: "Error", message: "failed!"))
+                case .success: break
+                }
+            }
         }
     }
     
